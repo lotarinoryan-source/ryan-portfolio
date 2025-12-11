@@ -1,10 +1,15 @@
 <?php
 
 // Vercel serverless function entry point for Laravel
-$_SERVER['SCRIPT_NAME'] = '/api/index.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-// Set the public path
-$_SERVER['DOCUMENT_ROOT'] = __DIR__ . '/../public';
+$app = require_once __DIR__ . '/../bootstrap/app.php';
 
-// Include the Laravel bootstrap
-require __DIR__ . '/../public/index.php';
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+$request = Illuminate\Http\Request::capture();
+$response = $kernel->handle($request);
+
+$response->send();
+
+$kernel->terminate($request, $response);
