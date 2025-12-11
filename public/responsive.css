@@ -1,0 +1,66 @@
+/* Mobile Responsive Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    #mainNav {
+        padding: 15px 20px !important;
+    }
+    
+    #mobileMenuBtn {
+        display: block !important;
+    }
+    
+    #navLinks {
+        display: none !important;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column !important;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        gap: 20px !important;
+    }
+    
+    #navLinks.active {
+        display: flex !important;
+    }
+}
+
+/* Services Page - Keep 4 cards in row on desktop, stack on mobile */
+@media (max-width: 1400px) {
+    .services-page > div > div:last-child {
+        flex-wrap: wrap !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-page > div > div:last-child {
+        flex-direction: column !important;
+    }
+    
+    .service-card {
+        width: 100% !important;
+    }
+}
+
+/* Portfolio Grid */
+@media (max-width: 1024px) {
+    .masonry-grid {
+        column-count: 2 !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .masonry-grid {
+        column-count: 1 !important;
+    }
+}
